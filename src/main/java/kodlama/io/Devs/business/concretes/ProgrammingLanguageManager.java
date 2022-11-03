@@ -56,7 +56,9 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
     public void save(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) {
         if(programmingLanguageExistValidator(createProgrammingLanguageRequest) && programmingLanguageNameValidator(createProgrammingLanguageRequest)){
             ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
+
             programmingLanguage.setName(createProgrammingLanguageRequest.getName());
+
             programmingLanguageRepository.save(programmingLanguage);
 
         }
@@ -72,7 +74,9 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
         if(!updateProgrammingLanguageRequest.getName().isEmpty()){
 
             ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(id).get();
+
             programmingLanguage.setName(updateProgrammingLanguageRequest.getName());
+
             programmingLanguageRepository.save(programmingLanguage);
 
         }

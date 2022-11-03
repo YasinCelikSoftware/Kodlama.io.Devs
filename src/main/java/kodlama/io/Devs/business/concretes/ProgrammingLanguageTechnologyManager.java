@@ -20,9 +20,12 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
     private ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository;
     private ProgrammingLanguageRepository programmingLanguageRepository;
 
-    public ProgrammingLanguageTechnologyManager(ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository, ProgrammingLanguageRepository programmingLanguageRepository){
+    public ProgrammingLanguageTechnologyManager(ProgrammingLanguageTechnologyRepository programmingLanguageTechnologyRepository,
+                                                ProgrammingLanguageRepository programmingLanguageRepository){
+
         this.programmingLanguageTechnologyRepository = programmingLanguageTechnologyRepository;
         this.programmingLanguageRepository = programmingLanguageRepository;
+
     }
 
     @Override
@@ -44,8 +47,11 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 
     @Override
     public void save(CreateProgrammingLanguageTechnologyRequest createProgrammingLanguageTechnologyRequest) {
+
         ProgrammingLanguageTechnology programmingLanguageTechnology = new ProgrammingLanguageTechnology();
-        ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(createProgrammingLanguageTechnologyRequest.getProgrammingLanguageId()).get();
+        ProgrammingLanguage programmingLanguage =
+                programmingLanguageRepository.findById(createProgrammingLanguageTechnologyRequest.getProgrammingLanguageId()).get();
+
         programmingLanguageTechnology.setName(createProgrammingLanguageTechnologyRequest.getName());
         programmingLanguageTechnology.setProgrammingLanguage(programmingLanguage);
 
@@ -65,10 +71,12 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
             ProgrammingLanguageTechnology programmingLanguageTechnology =
                     programmingLanguageTechnologyRepository.findById(id).get();
 
-            ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(updateProgrammingLanguageTechnologyRequest.getProgrammingLanguageId()).get();
+            ProgrammingLanguage programmingLanguage
+                    = programmingLanguageRepository.findById(updateProgrammingLanguageTechnologyRequest.getProgrammingLanguageId()).get();
 
             programmingLanguageTechnology.setName(updateProgrammingLanguageTechnologyRequest.getName());
             programmingLanguageTechnology.setProgrammingLanguage(programmingLanguage);
+
             programmingLanguageTechnologyRepository.save(programmingLanguageTechnology);
     }
 
