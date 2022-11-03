@@ -6,10 +6,7 @@ import kodlama.io.Devs.business.requests.programminglanguagerequests.DeleteProgr
 import kodlama.io.Devs.business.requests.programminglanguagerequests.UpdateProgrammingLanguageRequest;
 import kodlama.io.Devs.business.responses.programminglanguageresponses.GetAllProgrammingLanguageResponse;
 import kodlama.io.Devs.business.responses.programminglanguageresponses.GetByIdProgrammingLanguageResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,12 +26,12 @@ public class ProgrammingLanguagesController {
         programmingLanguageService.save(createProgrammingLanguageRequest);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest){
         programmingLanguageService.delete(deleteProgrammingLanguageRequest);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public void update(int id, UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest){
         programmingLanguageService.update(id, updateProgrammingLanguageRequest);
     }

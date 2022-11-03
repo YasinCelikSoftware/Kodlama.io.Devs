@@ -7,10 +7,7 @@ import kodlama.io.Devs.business.requests.programminglanguagetechnologyrequests.D
 import kodlama.io.Devs.business.requests.programminglanguagetechnologyrequests.UpdateProgrammingLanguageTechnologyRequest;
 import kodlama.io.Devs.business.responses.programminglanguagetechnologyresponses.GetAllProgrammingLanguageTechnologyResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,12 +32,12 @@ public class ProgrammingLanguageTechnologiesController {
         this.programmingLanguageTechnologyService.save(createProgrammingLanguageTechnologyRequest);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguageTechnologyRequest){
         this.programmingLanguageTechnologyService.delete(deleteProgrammingLanguageTechnologyRequest);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public void update(int id, UpdateProgrammingLanguageTechnologyRequest updateProgrammingLanguageTechnologyRequestRequest){
         this.programmingLanguageTechnologyService.update(id,updateProgrammingLanguageTechnologyRequestRequest);
     }
